@@ -184,13 +184,13 @@ input {
 }
 
 .filter-box.white {
-    min-width: 22%;
+    min-width: 18%;
     background-color: white;
 }
 
 .filter-box.blue {
     font-weight: 500;
-    width: 12%;
+    width: 10%;
     background-color: rgb(34, 189, 189);
     color:white;
     text-align: center;
@@ -239,14 +239,14 @@ button:hover {
     background-color: rgb(17, 227, 227);
 }
 
-.country-result-box, .hotel-result-box{
+.country-result-box, .city-result-box, .hotel-result-box{
     width: 95%;
     margin-top: 20px;
     background-color: white;
     border-radius: 10px;
 }
 
-.country-result-box ul, .hotel-result-box ul{
+.country-result-box ul, .city-result-box ul, .hotel-result-box ul{
     list-style: none;
     padding: 20px 10px;
     margin: 0;
@@ -254,7 +254,7 @@ button:hover {
     overflow-y: auto; 
 }
 
-.country-result-box ul li, .hotel-result-box ul li{
+.country-result-box ul li, .city-result-box ul li, .hotel-result-box ul li{
     padding: 7px 12px;
     border-radius: 3px;
     cursor: pointer;
@@ -263,7 +263,7 @@ button:hover {
     font-size: 14px; 
 }
 
-.country-result-box ul li:hover, .hotel-result-box ul li:hover{
+.country-result-box ul li:hover, .city-result-box ul li:hover, .hotel-result-box ul li:hover{
     background-color: rgb(230, 236, 242);
 }
 

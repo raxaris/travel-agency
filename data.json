@@ -1,0 +1,204 @@
+{
+    "countries": [
+      {
+        "id": 1,
+        "name": "USA",
+        "cities": [
+          {
+            "id": 101,
+            "name": "New York",
+            "hotels": [
+              {
+                "id": 10001,
+                "name": "Luxury Hotel",
+                "dateArrival": "2024-02-01",
+                "dateDeparture": "2024-02-05",
+                "adults": 2,
+                "children": 2,
+                "price": 1300,
+                "img": "https://example.com/luxury-hotel.jpg"
+              },
+              {
+                "id": 10002,
+                "name": "Downtown Suites",
+                "dateArrival": "2024-03-10",
+                "dateDeparture": "2024-03-15",
+                "adults": 2,
+                "children": 1,
+                "price": 1200,
+                "img": "https://example.com/downtown-suites.jpg"
+              }
+            ]
+          },
+          {
+            "id": 102,
+            "name": "Los Angeles",
+            "hotels": [
+              {
+                "id": 10003,
+                "name": "Hollywood Paradise",
+                "dateArrival": "2024-04-01",
+                "dateDeparture": "2024-04-10",
+                "adults": 1,
+                "children": 0,
+                "price": 750,
+                "img": "https://example.com/hollywood-paradise.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Egypt",
+        "cities": [
+          {
+            "id": 201,
+            "name": "Cairo",
+            "hotels": [
+              {
+                "id": 20001,
+                "name": "Nile View Hotel",
+                "dateArrival": "2024-05-15",
+                "dateDeparture": "2024-05-25",
+                "adults": 2,
+                "children": 1,
+                "price": 1100,
+                "img": "https://example.com/nile-view-hotel.jpg"
+              }
+            ]
+          },
+          {
+            "id": 202,
+            "name": "Luxor",
+            "hotels": [
+              {
+                "id": 20002,
+                "name": "Pharaoh's Retreat",
+                "dateArrival": "2024-06-05",
+                "dateDeparture": "2024-06-15",
+                "adults": 4,
+                "children": 0,
+                "price": 1600,
+                "img": "https://example.com/pharaohs-retreat.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Turkey",
+        "cities": [
+          {
+            "id": 301,
+            "name": "Istanbul",
+            "hotels": [
+              {
+                "id": 30001,
+                "name": "Bosphorus Hotel",
+                "dateArrival": "2024-07-01",
+                "dateDeparture": "2024-07-10",
+                "adults": 2,
+                "children": 0,
+                "price": 900,
+                "img": "https://example.com/bosphorus-hotel.jpg"
+              }
+            ]
+          },
+          {
+            "id": 302,
+            "name": "Cappadocia",
+            "hotels": [
+              {
+                "id": 30002,
+                "name": "Cave Retreat",
+                "dateArrival": "2024-08-01",
+                "dateDeparture": "2024-08-10",
+                "adults": 3,
+                "children": 0,
+                "price": 1250,
+                "img": "https://example.com/cave-retreat.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "UAE",
+        "cities": [
+          {
+            "id": 401,
+            "name": "Dubai",
+            "hotels": [
+              {
+                "id": 40001,
+                "name": "Palm Resort",
+                "dateArrival": "2024-09-01",
+                "dateDeparture": "2024-09-10",
+                "adults": 2,
+                "children": 0,
+                "price": 990,
+                "img": "https://example.com/palm-resort.jpg"
+              }
+            ]
+          },
+          {
+            "id": 402,
+            "name": "Abu Dhabi",
+            "hotels": [
+              {
+                "id": 40002,
+                "name": "Desert Oasis",
+                "dateArrival": "2024-10-01",
+                "dateDeparture": "2024-10-10",
+                "adults": 1,
+                "children": 0,
+                "price": 500,
+                "img": "https://example.com/desert-oasis.jpg"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "England",
+        "cities": [
+          {
+            "id": 501,
+            "name": "London",
+            "hotels": [
+              {
+                "id": 50001,
+                "name": "Royal Palace Hotel",
+                "dateArrival": "2024-11-01",
+                "dateDeparture": "2024-11-10",
+                "adults": 2,
+                "children": 2,
+                "price": 1400,
+                "img": "https://example.com/royal-palace-hotel.jpg"
+              }
+            ]
+          },
+          {
+            "id": 502,
+            "name": "Edinburgh",
+            "hotels": [
+              {
+                "id": 50002,
+                "name": "Highland Retreat",
+                "dateArrival": "2024-12-01",
+                "dateDeparture": "2024-12-10",
+                "adults": 3,
+                "children": 0,
+                "price": 1700,
+                "img": "https://example.com/highland-retreat.jpg"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
