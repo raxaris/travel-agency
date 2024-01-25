@@ -306,3 +306,20 @@ button:hover {
     background: rgba(0, 0, 0, 0.5); 
     z-index: 999; 
 }
+
+.people{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.persons-input input{
+    width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

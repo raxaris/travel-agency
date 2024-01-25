@@ -1,20 +1,21 @@
 function searchTours() {
     console.log("Search button clicked!");
 
-    var country = document.getElementById('countryInput').value;
-    var city = document.getElementById('cityInput').value;
-    var hotel = document.getElementById('hotelInput').value;
-    var dateRange = document.getElementById('dateRange').value;
-    var persons = document.getElementById('persons').value;
+    const country = document.getElementById('countryInput').value;
+    const city = document.getElementById('cityInput').value;
+    const hotel = document.getElementById('hotelInput').value;
+    const dateRange = document.getElementById('dateRange').value;
+    const adults = document.getElementById('adults').value;
+    const children = document.getElementById('children').value;
 
-    var queryParams = `ppl=${persons}&country=${country}&hotel=${hotel}&city=${city}&night=4&to=${dateRange.split(" to ")[1]}&from=${dateRange.split(" to ")[0]}`;
+    const queryParams = `ad=${adults}&ch=${children}&country=${country}&hotel=${hotel}&city=${city}&to=${dateRange.split(" to ")[1]}&from=${dateRange.split(" to ")[0]}`;
 
     fetch(`http://localhost:3000/search?${queryParams}`, {
         method: 'GET',
     })
     .then(response => {
         if (response.ok) {
-            window.location.href = 'search.html';
+            console.log(response)
         } else {
             showCustomAlert("Internal Server Error");
         }
