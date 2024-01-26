@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
 const path = require('path');
 const data = require('../data.json');
+const axios = require('axios');
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../view/index.html'));
@@ -33,6 +33,32 @@ router.get('/tours', (req, res) => {
     res.sendFile(path.join(__dirname, '../view/search.html'));
 });
 
+router.get('/weather', async (req, res) => {
+    try {
+        const apiKey = '7f1beacb3f1e4513aef90038241901';
+        const city = req.query.city;
+        
+        if (!city) {
+            return res.status(400).json({ error: 'City parameter is required' });
+        }
+
+        const units = 'metric';
+
+        const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&units=${units}&q=${city}`);
+        const data = response.data;
+
+        const weatherData = {
+            temperature: data.current.temp_c,
+            condition: data.current.condition.text
+        };
+
+        res.json(weatherData);
+    } catch (error) {
+        console.error('Error fetching weather data:', error.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 function findMatchingTours(queryParams) {
     const { ad: adults, ch: children, country, hotel, city, to: departure, from: arrival } = queryParams;
 
@@ -59,6 +85,7 @@ function findMatchingTours(queryParams) {
                             result.push({
                                 country: currentCountry.name,
                                 city: matchingCity.name,
+                                weather: checkWeather(matchingCity),
                                 hotel: matchingHotel.name,
                                 arrival: tour.dateArrival,
                                 departure: tour.dateDeparture,
@@ -81,6 +108,10 @@ function calculatePrice(hotel, adults, children) {
     const hotelPrice = parseInt(hotel.price);
     const totalPrice = hotelPrice * (parseInt(adults) + parseInt(children) * 0.5);
     return totalPrice;
+}
+
+function checkWeather(city){
+
 }
 
 module.exports = router
