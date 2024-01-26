@@ -1,48 +1,62 @@
-{
+  {
     "countries": [
       {
         "id": 1,
         "name": "USA",
         "cities": [
           {
-            "id": 101,
+            "id": 1,
             "name": "New York",
             "hotels": [
               {
-                "id": 10001,
+                "id": 1,
                 "name": "Luxury Hotel",
-                "dateArrival": "2024-02-01",
-                "dateDeparture": "2024-02-05",
-                "adults": 2,
-                "children": 2,
-                "price": 1300,
-                "img": "https://example.com/luxury-hotel.jpg"
+                "price" : 300,
+                "img": "https://media.cntraveler.com/photos/63483e15ef943eff59de603a/3:2/w_3000,h_2000,c_limit/New%20York%20City_GettyImages-1347979016.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-02-01",
+                    "dateDeparture": "2024-02-05",
+                    "adults": 2,
+                    "children": 2
+                  }
+                ]
               },
               {
-                "id": 10002,
-                "name": "Downtown Suites",
-                "dateArrival": "2024-03-10",
-                "dateDeparture": "2024-03-15",
-                "adults": 2,
-                "children": 1,
-                "price": 1200,
-                "img": "https://example.com/downtown-suites.jpg"
+                "id": 2,
+                "name": "Ritz-Carlton NY",
+                "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/446598387.jpg?k=9870e791bd08baf5eacb485b653320a78d6557c59dc8c9f355e60ecf67940b00&o=&hp=1",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-03-10",
+                    "dateDeparture": "2024-03-15",
+                    "adults": 2,
+                    "children": 1
+                  }
+                ]
               }
             ]
           },
           {
-            "id": 102,
+            "id": 2,
             "name": "Los Angeles",
             "hotels": [
               {
-                "id": 10003,
+                "id": 1,
                 "name": "Hollywood Paradise",
-                "dateArrival": "2024-04-01",
-                "dateDeparture": "2024-04-10",
-                "adults": 1,
-                "children": 0,
-                "price": 750,
-                "img": "https://example.com/hollywood-paradise.jpg"
+                "price": 500,
+                "img": "https://www.forumdaily.com/wp-content/uploads/2023/04/iStock-933896402.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-04-01",
+                    "dateDeparture": "2024-04-10",
+                    "adults": 1,
+                    "children": 0
+                  }
+                ]
               }
             ]
           }
@@ -53,34 +67,44 @@
         "name": "Egypt",
         "cities": [
           {
-            "id": 201,
+            "id": 1,
             "name": "Cairo",
             "hotels": [
               {
-                "id": 20001,
+                "id": 1,
                 "name": "Nile View Hotel",
-                "dateArrival": "2024-05-15",
-                "dateDeparture": "2024-05-25",
-                "adults": 2,
-                "children": 1,
-                "price": 1100,
-                "img": "https://example.com/nile-view-hotel.jpg"
+                "price": 300,
+                "img": "https://misstourist.com/wp-content/uploads/2022/05/0%20Where%20to%20Stay%20in%20Cairo.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-05-15",
+                    "dateDeparture": "2024-05-25",
+                    "adults": 2,
+                    "children": 1
+                  }
+                ]
               }
             ]
           },
           {
-            "id": 202,
+            "id": 2,
             "name": "Luxor",
             "hotels": [
               {
-                "id": 20002,
+                "id": 1,
                 "name": "Pharaoh's Retreat",
-                "dateArrival": "2024-06-05",
-                "dateDeparture": "2024-06-15",
-                "adults": 4,
-                "children": 0,
-                "price": 1600,
-                "img": "https://example.com/pharaohs-retreat.jpg"
+                "price": 350,
+                "img": "https://static.independent.co.uk/2023/08/23/12/iStock-1392340139.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-06-05",
+                    "dateDeparture": "2024-06-15",
+                    "adults": 4,
+                    "children": 0
+                  }
+                ]
               }
             ]
           }
@@ -91,34 +115,44 @@
         "name": "Turkey",
         "cities": [
           {
-            "id": 301,
+            "id": 1,
             "name": "Istanbul",
             "hotels": [
               {
-                "id": 30001,
+                "id": 1,
                 "name": "Bosphorus Hotel",
-                "dateArrival": "2024-07-01",
-                "dateDeparture": "2024-07-10",
-                "adults": 2,
-                "children": 0,
-                "price": 900,
-                "img": "https://example.com/bosphorus-hotel.jpg"
+                "price": 350,
+                "img": "https://a.cdn-hotels.com/gdcs/production6/d781/3bae040b-2afb-4b11-9542-859eeb8ebaf1.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-07-01",
+                    "dateDeparture": "2024-07-10",
+                    "adults": 2,
+                    "children": 0
+                  }
+                ]
               }
             ]
           },
           {
-            "id": 302,
+            "id": 2,
             "name": "Cappadocia",
             "hotels": [
               {
-                "id": 30002,
+                "id": 1,
                 "name": "Cave Retreat",
-                "dateArrival": "2024-08-01",
-                "dateDeparture": "2024-08-10",
-                "adults": 3,
-                "children": 0,
-                "price": 1250,
-                "img": "https://example.com/cave-retreat.jpg"
+                "price": 700,
+                "img": "https://www.barcelo.com/guia-turismo/wp-content/uploads/2020/03/capadocia_888.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-08-01",
+                    "dateDeparture": "2024-08-10",
+                    "adults": 3,
+                    "children": 0
+                  }
+                ]
               }
             ]
           }
@@ -129,34 +163,44 @@
         "name": "UAE",
         "cities": [
           {
-            "id": 401,
+            "id": 1,
             "name": "Dubai",
             "hotels": [
               {
-                "id": 40001,
+                "id": 1,
                 "name": "Palm Resort",
-                "dateArrival": "2024-09-01",
-                "dateDeparture": "2024-09-10",
-                "adults": 2,
-                "children": 0,
-                "price": 990,
-                "img": "https://example.com/palm-resort.jpg"
+                "price": 1000,
+                "img": "https://i.ytimg.com/vi/lflCmjW7RlI/maxresdefault.jpg",
+                "tours": [
+                  {
+                    "id": 8,
+                    "dateArrival": "2024-09-01",
+                    "dateDeparture": "2024-09-10",
+                    "adults": 2,
+                    "children": 0
+                  }
+                ]
               }
             ]
           },
           {
-            "id": 402,
+            "id": 2,
             "name": "Abu Dhabi",
             "hotels": [
               {
-                "id": 40002,
+                "id": 1,
                 "name": "Desert Oasis",
-                "dateArrival": "2024-10-01",
-                "dateDeparture": "2024-10-10",
-                "adults": 1,
-                "children": 0,
-                "price": 500,
-                "img": "https://example.com/desert-oasis.jpg"
+                "price": 800,
+                "img": "https://www.iie.org/wp-content/uploads/2022/12/Abu-Dhabi-Shore.jpeg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-10-01",
+                    "dateDeparture": "2024-10-10",
+                    "adults": 1,
+                    "children": 0
+                  }
+                ]
               }
             ]
           }
@@ -167,34 +211,44 @@
         "name": "England",
         "cities": [
           {
-            "id": 501,
+            "id": 1,
             "name": "London",
             "hotels": [
               {
-                "id": 50001,
+                "id": 1,
                 "name": "Royal Palace Hotel",
-                "dateArrival": "2024-11-01",
-                "dateDeparture": "2024-11-10",
-                "adults": 2,
-                "children": 2,
-                "price": 1400,
-                "img": "https://example.com/royal-palace-hotel.jpg"
+                "price": 700,
+                "img": "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-11-01",
+                    "dateDeparture": "2024-11-10",
+                    "adults": 2,
+                    "children": 2
+                  }
+                ]
               }
             ]
           },
           {
-            "id": 502,
+            "id": 2,
             "name": "Edinburgh",
             "hotels": [
               {
-                "id": 50002,
+                "id": 1,
                 "name": "Highland Retreat",
-                "dateArrival": "2024-12-01",
-                "dateDeparture": "2024-12-10",
-                "adults": 3,
-                "children": 0,
-                "price": 1700,
-                "img": "https://example.com/highland-retreat.jpg"
+                "price": 800,
+                "img": "https://media.cntraveller.com/photos/611be9e3d5b6f5a4a3def392/16:9/w_1920,c_limit/Mountain-view-over-city-Edinburgh-scotland-conde-nast-traveller-28july17-iStock.jpg",
+                "tours": [
+                  {
+                    "id": 1,
+                    "dateArrival": "2024-12-01",
+                    "dateDeparture": "2024-12-10",
+                    "adults": 3,
+                    "children": 0
+                  }
+                ]
               }
             ]
           }

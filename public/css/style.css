@@ -28,6 +28,11 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.home-header-container{
+    min-height: 87vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media (min-width: 768px) {
     .header-container {
         max-height: 90vh;
@@ -36,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .banner{
-    padding-top: 80px;
+    padding-top: 150px;
     color: white;
 }
 
@@ -322,4 +327,39 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* Cart */
+.people {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.adults, .children{
+    padding-right: 20px;
+}
+
+.tour-info button{
+    width: 150px;
+    padding: 1px;
+    border-radius: 50px;
+}
+
+.main{
+    min-height: 0vh;
+}
+
+.item-brand{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.item-location{
+    font-size: 16px;
+    color: gray;
+}
+
+.list-container{
+    min-height: 30vh
 }

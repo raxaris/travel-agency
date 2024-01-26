@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,19 +18,19 @@
 </head>
 <body>
     <div class="header container-fluid p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-4 py-4" style="background-color: rgba(0, 0, 0, 0.3);">
+        <nav class="navbar navbar-expand-lg navbar-dark px-4 py-4" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#" style="margin: 0;"><img class="logo" src="img/logo.png" width="70%"></a>
+              <a class="navbar-brand" href="#" style="margin: 0;"><img class="logo" src="../public/img/logo.png" width="70%"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="navbar-container collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">ALL TOURS</a>
+                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link "  href="#">HOT TOURS</a>
+                    <a class="nav-link " href="/travel">ALL TOURS</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">VISA</a>
@@ -50,7 +50,7 @@
                       <a class="price nav-link active fw-bold" aria-current="page" href="#">$0.00</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="cart.html">
+                            <a class="nav-link active" aria-current="page" href="/history">
                                 <span class="material-icons">
                                 <i class="fa-solid fa-bag-shopping"></i>
                             </span>
@@ -63,81 +63,13 @@
               </div>
             </div>
           </nav>
-          <div class="header-container container-fluid">
+          <div class="home-header-container container-fluid">
                 <div class="banner container">
                     <div class="display-4 fw-bold text-center">
-                        Your dream holiday without waiting
+                        DNK Travel - Where Your Dreams Become the DNA of Extraordinary Adventures.
                     </div>
-                    <div class="row align-items-center mt-4" style="width: 50%; margin-left: 400px;">
-                            <div class="col p-0">
-                                <div class="homebank" style="padding: 15px 15px; border-radius: 15px; padding-bottom: 18px; background-color: white;">
-                                    <img src="img/homepng.png" style="width: 100%;">
-                                </div>
-                            </div>
-                            <div class="col p-0">
-                                <div class="twelve-container d-flex justify-content-center align-items-center" style="width: 40%; margin-left: 7px; padding: 5.5px 2px; border-radius: 15px; background-color: rgb(206, 31, 63);">
-                                    <div class="twelve fs-2 fw-bold text-center">
-                                        0-0-12
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-                <div class="filter container" style="width: 90%;">
-                    <div class="filter-row">
-                        <div>
-                            <div class="filter-box white">
-                                <div class="dropdown">
-                                    <input type="text" id="countryInput" placeholder="&#x1F5FB Country">
-                                </div>
-                            </div>
-                            <div class="country-result-box">
-            
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="filter-box white">
-                                <div class="dropdown">
-                                    <input type="text" id="cityInput" placeholder="&#128509 City">
-                                    <div class="dropdown-content">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="city-result-box">
-                                
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="filter-box white">
-                                <div class="dropdown">
-                                    <input type="text" id="hotelInput" placeholder="&#127976 Hotel">
-                                    <div class="dropdown-content">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotel-result-box">
-                                
-                            </div>
-                        </div>
-
-                        <div class="filter-box white">
-                            <div class="dateRange"><input type="custom-datetime" id="dateRange" placeholder="&#x1F4C5 Date"></div>
-                        </div>
-                
-                        <div class="filter-box white people">
-                            <div class="persons-input">
-                                <input type="number" id="adults" placeholder="&#x1F465 Adults">
-                            </div>
-                            <div class="persons-input">
-                                <input type="number" id="children" placeholder="&#x1F9D2 Children">
-                            </div>
-                        </div>
-                
-                        <div class="filter-box blue" onclick="searchTours()">
-                            Search
-                        </div>
+                    <div class="display-6 fw-bold text-center pt-4">
+                        DNK Travel: Your dreams, our guiding DNA.
                     </div>
                 </div>
           </div>    
@@ -147,7 +79,7 @@
             <div class="row justify-content-center">
                 <div class="col-10 col-sm-9 col-md-7 col-lg-4 col-xl-3 mt-3">
                     <div class="card book-now">
-                        <img src="img/thailand.jpg" class="card-img"> 
+                        <img src="../public/img/thailand.jpg" class="card-img"> 
                         <div class="card-img-overlay">
                             <div class="flex-end">
                                 <div class="inner-content mx-4">
@@ -165,7 +97,7 @@
                 </div>
                 <div class="col-10 col-sm-9 col-md-7 col-lg-4 col-xl-3 mt-3">
                     <div class="card book-now">
-                        <img src="img/turkey.jpg" class="card-img"> 
+                        <img src="../public/img/turkey.jpg" class="card-img"> 
                         <div class="card-img-overlay">
                             <div class="flex-end">
                                 <div class="inner-content mx-4">
@@ -183,7 +115,7 @@
                 </div>
                 <div class="col-10 col-sm-9 col-md-7 col-lg-4 col-xl-3 mt-3">
                     <div class="card book-now">
-                        <img src="img/egypt.jpg" class="card-img"> 
+                        <img src="../public/img/egypt.jpg" class="card-img"> 
                         <div class="card-img-overlay">
                             <div class="flex-end">
                                 <div class="inner-content px-4">
@@ -206,7 +138,7 @@
     <div class="container-fluid footer" style="width: 78%;">
             <div class="row align-items-center justify-content-between">
                 <div class="col-12 col-md-6 col-xxl-4 footer-banner py-2">
-                    <img src="logoblck.png">
+                    <img src="../public/img/logoblck.png">
                     <div class="footer-title">
                         Discover your best look in every destination.
                     </div>
@@ -280,9 +212,6 @@
             minDate: "today",
         });
     </script>
-    <script src="scripts/autocomplete.js"></script>
-    <script src="scripts/customalert.js"></script>
-    <script src="scripts/searchTours.js"></script>
-
+    <script src="../public/scripts/customalert.js"></script>
 </body>
 </html>
