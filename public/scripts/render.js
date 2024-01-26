@@ -1,5 +1,6 @@
 function renderCart(data) {
-    const tours = data
+    const tours = data;
+    console.log("tourdata", data);
 
     const tourCountainer = document.querySelector(".tours");
 
@@ -46,8 +47,40 @@ function renderCart(data) {
     plural.textContent = tours.length === 1 ? "" : "s";
 }
 
-window.addEventListener('load', () => {
-    let data = getData();
-    renderCart(data);
-    addEventListeners();
+async function renderPage() {
+    try {
+        const queryString = window.location.search;
+        console.log(queryString);
+        const serverURL = `http://localhost:3000/travel/search${queryString}`;
+        console.log(serverURL);
+        
+        // Use await to wait for the data to be fetched
+        const data = await getDataFromServer(serverURL);
+        console.log("query Data", data);
+        
+        // Now you can safely pass the data to your render function
+        renderCart(data);
+    } catch (error) {
+        console.error("Error rendering page:", error);
+    }
+}
+
+window.addEventListener('load', async () => {
+    await renderPage();
 });
+
+async function getDataFromServer(url) {
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        throw error;
+    }
+}

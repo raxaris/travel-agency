@@ -1,9 +1,3 @@
-let toursData = null;
-
-function getData(){
-    return toursData;
-}
-
 function searchTours() {
     console.log("Search button clicked!");
 
@@ -30,18 +24,7 @@ function searchTours() {
         .join('&');
 
    
-    const url = `http://localhost:3000/travel/search?${queryParams}`;
-    console.log(url);
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        toursData = data;
-        console.log("Data received from the server:", data);
-        const toursUrl = `/travel/tours?data=${queryParams}`;
-        window.location.href = toursUrl;
-    })
-    .catch(error => {
-        console.error("Error fetching search data:", error);
-    });
+        const url = `http://localhost:3000/travel/tours?${queryParams}`;
+        console.log(url);
+        window.location.href = url;
 }
