@@ -9,13 +9,13 @@ function searchTours() {
     const children = document.getElementById('children').value;
 
     const queryParamsObject = {
-        ad: adults,
-        ch: children,
         country: country,
         city: city,
         hotel: hotel,
-        to: dateRange ? dateRange.split(" to ")[1] : undefined,
-        from: dateRange ? dateRange.split(" to ")[0] : undefined,
+        arrival: dateRange ? dateRange.split(" to ")[0] : undefined,
+        departure: dateRange ? dateRange.split(" to ")[1] : undefined,
+        adults: adults,
+        children: children
     };
 
     const queryParams = Object.entries(queryParamsObject)

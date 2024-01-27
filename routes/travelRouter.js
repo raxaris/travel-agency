@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const data = require('../data.json');
 const axios = require('axios');
+const fs = require('fs');
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../view/index.html'));
@@ -30,6 +31,9 @@ router.get('/data', (req, res) => {
 });
 
 router.get('/tours', (req, res) => {
+    const queryParams = req.query;
+    console.log('query: ', queryParams);
+    saveHistoryLog(queryParams);
     res.sendFile(path.join(__dirname, '../view/search.html'));
 });
 
@@ -60,32 +64,29 @@ router.get('/weather', async (req, res) => {
 });
 
 function findMatchingTours(queryParams) {
-    const { ad: adults, ch: children, country, hotel, city, to: departure, from: arrival } = queryParams;
-
     return data.countries.reduce((result, currentCountry) => {
-        if (!country || currentCountry.name === country) {
+        if (!queryParams.country || currentCountry.name === queryParams.country) {
             const matchingCities = currentCountry.cities.filter(cityData => {
-                return !city || cityData.name === city;
+                return !queryParams.city || cityData.name === queryParams.city;
             });
 
             matchingCities.forEach(matchingCity => {
                 const matchingHotels = matchingCity.hotels.filter(hotelData => {
-                    return !hotel || hotelData.name === hotel;
+                    return !queryParams.hotel || hotelData.name === queryParams.hotel;
                 });
 
                 matchingHotels.forEach(matchingHotel => {
                     matchingHotel.tours.forEach(tour => {
-                        const datesMatch = (!departure || tour.dateDeparture === departure) &&
-                            (!arrival || tour.dateArrival === arrival);
+                        const datesMatch = (!queryParams.departure || tour.dateDeparture === queryParams.departure) &&
+                            (!queryParams.arrival || tour.dateArrival === queryParams.arrival);
 
-                        const guestsMatch = (!adults || tour.adults === parseInt(adults)) &&
-                            (!children || tour.children === parseInt(children));
+                        const guestsMatch = (!queryParams.adults || tour.adults === parseInt(queryParams.adults)) &&
+                            (!queryParams.children || tour.children === parseInt(queryParams.children));
 
                         if (datesMatch && guestsMatch) {
                             result.push({
                                 country: currentCountry.name,
                                 city: matchingCity.name,
-                                weather: checkWeather(matchingCity),
                                 hotel: matchingHotel.name,
                                 arrival: tour.dateArrival,
                                 departure: tour.dateDeparture,
@@ -110,8 +111,24 @@ function calculatePrice(hotel, adults, children) {
     return totalPrice;
 }
 
-function checkWeather(city){
+function saveHistoryLog(query){
+    const date = Date.now().toString();
+    const logData = {
+        date: date,
+        data: query,
+    };
 
+    let logs = [];
+    try {
+        const logsFile = fs.readFileSync('logs.json', 'utf8');
+        logs = JSON.parse(logsFile);
+    } catch (error) {
+        console.error('Error reading logs:', error.message);
+    }
+
+    logs.push(logData);
+
+    fs.writeFileSync('logs.json', JSON.stringify(logs, null, 2), 'utf8');
 }
 
 module.exports = router

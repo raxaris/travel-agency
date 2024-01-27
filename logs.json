@@ -1,0 +1,82 @@
+[
+  {
+    "date": "1706361705465",
+    "data": {
+      "country": "USA",
+      "city": "Los Angeles",
+      "hotel": "Hollywood Paradise"
+    }
+  },
+  {
+    "date": "1706361783977",
+    "data": {
+      "country": "UAE",
+      "city": "Dubai",
+      "hotel": "Palm Resort",
+      "arrival": "2024-01-27",
+      "departure": "2024-01-31",
+      "adults": "2",
+      "children": "2"
+    }
+  },
+  {
+    "date": "1706362464132",
+    "data": {}
+  },
+  {
+    "date": "1706363294763",
+    "data": {
+      "country": "Thailand"
+    }
+  },
+  {
+    "date": "1706363323941",
+    "data": {
+      "country": "Thailand"
+    }
+  },
+  {
+    "date": "1706363329202",
+    "data": {
+      "country": "Egypt"
+    }
+  },
+  {
+    "date": "1706363332337",
+    "data": {
+      "country": "Thailand"
+    }
+  },
+  {
+    "date": "1706363356915",
+    "data": {
+      "country": "Thailand"
+    }
+  },
+  {
+    "date": "1706363359173",
+    "data": {
+      "country": "Turkey"
+    }
+  },
+  {
+    "date": "1706364537964",
+    "data": {
+      "country": "Turkey"
+    }
+  },
+  {
+    "date": "1706364843659",
+    "data": {
+      "country": "Turkey",
+      "city": "Istanbul",
+      "hotel": "Bosphorus Hotel"
+    }
+  },
+  {
+    "date": "1706364855362",
+    "data": {
+      "country": "USA"
+    }
+  }
+]

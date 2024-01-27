@@ -26,6 +26,7 @@
               {
                 "id": 2,
                 "name": "Ritz-Carlton NY",
+                "price" : 400,
                 "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/446598387.jpg?k=9870e791bd08baf5eacb485b653320a78d6557c59dc8c9f355e60ecf67940b00&o=&hp=1",
                 "tours": [
                   {
