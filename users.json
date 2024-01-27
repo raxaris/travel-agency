@@ -1,0 +1,58 @@
+[  
+    {
+        "id": 0,
+        "username": "raxar",
+        "email": "raxar",
+        "password": "admin",
+        "role": "admin"
+      },
+    {
+        "id": 1,
+        "username": "nrlnvskaaaaaa",
+        "email": "ernur@gmail.com",
+        "password": "nurlanovichernurnurlanovich",
+        "role": "user"
+    },
+    {
+        "id": 2,
+        "username": "bekakpoplover",
+        "email": "namjon@kpop.com",
+        "password": "lisalisalisa",
+        "role": "user"
+    },
+    {
+        "id": 3,
+        "username": "narik",
+        "email": "narik@gmail.com",
+        "password": "myprojectIsBetter",
+        "role": "user"
+    },
+    {
+        "id": 4,
+        "username": "hubert",
+        "email": "hitlerwasright@gmail.com",
+        "password": "Moldova2024",
+        "role": "user"
+    },
+    {
+        "id": 5,
+        "username": "123",
+        "email": "123@gmail.com",
+        "password": "Ernur2004",
+        "role": "user"
+    },
+    {
+        "id": 6,
+        "username": "lila",
+        "email": "raxar123@gmail.com",
+        "password": "Ernur123",
+        "role": "user"
+    },
+    {
+        "id": 7,
+        "username": "lola",
+        "email": "lola.utenova@gmail.com",
+        "password": "Lola2001",
+        "role": "user"
+    }
+]

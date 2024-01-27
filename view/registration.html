@@ -25,18 +25,18 @@
           </button>
           <div class="navbar-container collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/travel">CHECK TOURS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">VISA</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/travel/tours">ALL TOURS </a>
-                  </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/travel">CHECK TOURS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">VISA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/travel/tours">ALL TOURS </a>
+              </li>
             </ul>
             <ul class="menu navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -57,34 +57,42 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/registration"><i class="fa-solid fa-circle-user"></i></a>
-                  </li>
+                </li>
               </ul>
           </div>
         </div>
       </nav>
     <main class="main container-fluid p-0" style="width:90%;">
-        <div class="d-flex justify-content-center align-items-center" style="height: 65vh;"> 
+        <div class="d-flex justify-content-center align-items-center mt-3 mb-3"> 
             <div class="card col-10 col-md-6 col-lg-4">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Login</h5>
-                    <form id="loginForm" action="/login" method="post">
+                    <h5 class="card-title text-center">Sign up</h5>
+                    <form id="signUpForm" action="/registration" method="post">
                         <div class="mb-3">
-                            <label for="login" class="form-label">Username or e-mail</label>
-                            <input type="text" class="form-control" id="login" name="login" required>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="confirm" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm" name="confirm" required>
+                        </div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                             </div>
-                            <a class="text-decoration-none px-2 login" href="/resetPassword">Forgot password?</a>
+                            <a class="text-decoration-none px-2 login" href="/login">Already have an account?</a>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn loginButton text-white px-5" style="background-color: rgb(13, 133, 253);">Login</button>
+                            <button type="submit" class="btn loginButton text-white px-5" onclick="">Sign Up</button>
                         </div>
                     </form>
                 </div>
@@ -158,4 +166,6 @@
     <script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
 
