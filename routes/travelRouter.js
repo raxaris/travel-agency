@@ -53,9 +53,8 @@ router.get('/weather', async (req, res) => {
 
         const weatherData = {
             temperature: data.current.temp_c,
-            condition: data.current.condition.text
+            condition: configureCondition(data.current.condition.text)
         };
-
         res.json(weatherData);
     } catch (error) {
         console.error('Error fetching weather data:', error.message);
@@ -115,7 +114,7 @@ function saveHistoryLog(query){
     const date = Date.now().toString();
     const logData = {
         date: date,
-        data: query,
+        data: query
     };
 
     let logs = [];
@@ -129,6 +128,24 @@ function saveHistoryLog(query){
     logs.push(logData);
 
     fs.writeFileSync('logs.json', JSON.stringify(logs, null, 2), 'utf8');
+}
+
+function configureCondition(condition) {
+    condition = condition.toLowerCase();
+
+    if (condition.includes("snow")) {
+        return "&#x1F328";
+    } else if (condition.includes("mist") || condition.includes("fog")) {
+        return "&#x1F32B;";
+    } else if (condition.includes("sunny") || condition.includes("clear")) {
+        return "&#x2600";
+    } else if (condition.includes("cloud") || condition.includes("overcast")) {
+        return "&#x2601";
+    } else if (condition.includes("rain") || condition.includes("thunder")) {
+        return "&#x1F327;";
+    } else {
+        return "&#x2600";
+    }
 }
 
 module.exports = router

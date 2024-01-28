@@ -24,7 +24,7 @@ async function renderCart(data) {
                             <div class="item-location">
                                 <span class="tour-country">${tour.country}</span>,
                                 <span class="tour-city"> ${tour.city}</span>,
-                                <span class="tour-temp"> ${weatherData.temperature}°C</span>
+                                <span class="tour-condition"> ${weatherData.condition}</span> <span class="tour-temp"> ${weatherData.temperature}°C</span>
                             </div>
                             <div class="item-date">
                                 <div class="arrival">Arrival Date: <span class="date-arrival">${tour.arrival}</span></div>    
