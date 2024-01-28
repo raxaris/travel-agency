@@ -14,7 +14,9 @@ This project is compatible with Node.js version 20.10.0. Ensure that you have No
 - **Data Storage**:
   - `data.json`: Stores data related to tours, countries, cities, hotels, and prices.
   - `logs.json`: Maintains a log of historical search queries.
+  - `users.json`: Stores users data, such as username, email, password.
   - `package-lock.json`: Captures dependency versions to ensure consistent installations.
+  
 
 - **Server**:
  - `server.js`: Main server file that handles routing, static files, and server initialization.
