@@ -16,12 +16,12 @@ function generateUserBlock(user) {
 
     userBlock.innerHTML = `
         <td><input type="text" class="form-control" id="${username}" value="${user.username}"></td>
-        <td><input type="text" class="form-control" id="${email}" value="${user.email}"></td>
-        <td><input type="text" class="form-control" id="${password}" value="${user.password}"></td>
+        <td><input type="text" class="form-control" readonly id="${email}" value="${user.email}"></td>
+        <td><input type="text" class="form-control" id="${password}${email}" value="${user.password}"></td>
         <td>
-            <button class="btn loginButton text-white px-0 mb-1 me-3" style="background-color: rgb(13, 133, 253);"
-            onclick="saveUser('${username}', '${email}', '${password}')">Save</button>
-            <button class="btn btn-danger" onclick="deleteUser('${user.email}')">Delete</button>
+            <button class="btn loginButton text-white px-4" style="background-color: rgb(13, 133, 253);"
+            onclick="saveUser('${username}', '${email}', '${password}${email}')">Save</button>
+            <button class="btn btn-danger px-4" onclick="deleteUser('${user.email}')">Delete</button>
         </td>
     `;
 
@@ -83,8 +83,8 @@ async function saveUser(usernameInputId, emailInputId, passwordInputId) {
 
 async function deleteUser(userEmail) {
     try {
-        const response = await fetch(`/admin/deleteUser?email=${encodeURIComponent(userEmail)}`, {
-            method: 'DELETE',
+        const response = await fetch(`/admin/deleteUser/${encodeURIComponent(userEmail)}`, {
+            method: 'DELETE'
         });
 
         if (!response.ok) {
@@ -103,22 +103,55 @@ async function deleteUser(userEmail) {
 async function search() {
     clearAll();
 
-    const id = document.getElementById('userId').value;
+    const email = document.getElementById('userEmail').value;
 
-    if (id === "") {
+    if (email === "") {
         showAll();
     } else {
         try {
-            const user = await getUserById(id);
+            const user = await getUserByEmail(email);
 
             if (user) {
                 generateUserBlock(user);
             } else {
-                console.log(`User with ID ${id} not found.`);
+                console.log(`User with e-mail ${email} not found.`);
             }
         } catch (error) {
-            console.error('Error fetching user by ID:', error);
+            console.error('Error fetching user by e-mail:', error);
         }
+    }
+}
+
+async function createUser() {
+    const newUsername = document.getElementById('newUsername').value;
+    const newEmail = document.getElementById('newEmail').value;
+    const newPassword = document.getElementById('newPassword').value;
+
+    try {
+        const response = await fetch('/admin/addUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: newUsername,
+                email: newEmail,
+                password: newPassword
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('User added successfully:', data);
+
+        const myModal = document.getElementById('createModal');
+        $(myModal).modal('hide');
+
+    } catch (error) {
+        console.error('Fetch error:', error);
     }
 }
 
@@ -138,9 +171,9 @@ async function getUsers() {
     }
 }
 
-async function getUserById(id) {
+async function getUserByEmail(email) {
     try {
-        const response = await fetch(`/admin/getUser/${id}`);
+        const response = await fetch(`/admin/getUser/${email}`);
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -149,7 +182,7 @@ async function getUserById(id) {
         const user = await response.json();
         return user;
     } catch (error) {
-        console.error(`Error fetching user with ID ${id}:`, error);
-        throw new Error(`Unable to fetch user with ID ${id}`);
+        console.error(`Error fetching user with email ${email}:`, error);
+        throw new Error(`Unable to fetch user with email ${email}`);
     }
 }
