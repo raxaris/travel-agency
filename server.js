@@ -25,6 +25,14 @@ app.use(session({
     maxAge: 86400000,
     secure: false } 
 }));
+//CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://travel-agency-spb9.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 //helmet
 app.use(
   helmet.contentSecurityPolicy({
