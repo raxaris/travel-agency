@@ -46,9 +46,11 @@ app.use('/admin', adminRouter);
 app.use('/', mainRouter);
 
 //mongodb
-mongoose.connect('mongodb://localhost:27017/mongo')
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+const uri = 'mongodb+srv://waxansar99:Ansar2004@cluster0.isrz2wx.mongodb.net/<dbname>?retryWrites=true&w=majority';
+
+mongoose.connect(uri)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch(err => console.error('Error connecting to MongoDB Atlas:', err));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
