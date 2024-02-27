@@ -4,6 +4,8 @@ const mainRouter = require('./routes/mainRouter');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const {secret} = require('./config');
 
 const app = express();
 const port = 3000;
@@ -13,6 +15,15 @@ app.use(bodyParser.json());
 
 //static files
 app.use(express.static(__dirname));
+//session
+app.use(session({
+  secret: secret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 86400000,
+    secure: false } 
+}));
 
 //travelRouter
 // app.use('/travel', travelRouter);

@@ -110,26 +110,6 @@ function calculatePrice(hotel, adults, children) {
     return totalPrice;
 }
 
-function saveHistoryLog(query){
-    const date = Date.now().toString();
-    const logData = {
-        date: date,
-        data: query
-    };
-
-    let logs = [];
-    try {
-        const logsFile = fs.readFileSync('logs.json', 'utf8');
-        logs = JSON.parse(logsFile);
-    } catch (error) {
-        console.error('Error reading logs:', error.message);
-    }
-
-    logs.push(logData);
-
-    fs.writeFileSync('logs.json', JSON.stringify(logs, null, 2), 'utf8');
-}
-
 function configureCondition(condition) {
     condition = condition.toLowerCase();
 

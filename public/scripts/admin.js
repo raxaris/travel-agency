@@ -17,7 +17,7 @@ function generateUserBlock(user) {
     userBlock.innerHTML = `
         <td><input type="text" class="form-control" id="${username}" value="${user.username}"></td>
         <td><input type="text" class="form-control" readonly id="${email}" value="${user.email}"></td>
-        <td><input type="text" class="form-control" id="${password}${email}" value="${user.password}"></td>
+        <td><input type="text" class="form-control" readonly id="${password}${email}" value="${user.password}"></td>
         <td>
             <button class="btn loginButton text-white px-4" style="background-color: rgb(13, 133, 253);"
             onclick="saveUser('${username}', '${email}', '${password}${email}')">Save</button>

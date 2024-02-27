@@ -1,4 +1,6 @@
 const User = require("../models/userModel")
+const bcrypt = require('bcryptjs');
+const Role = require("../models/roleModel");
 
 class UserController {
     async addUser(req, res) {
@@ -18,7 +20,7 @@ class UserController {
             const hashPassword = bcrypt.hashSync(password, 7);
 
             const userRole = await Role.findOne({value: "USER"});
-            const user = new User({username, email, hashPassword, roles: [userRole.value]})
+            const user = new User({username, email, password: hashPassword, roles: [userRole.value]})
             await user.save();
 
             res.json({ status: 'success', message: 'User added successfully' });
@@ -41,8 +43,8 @@ class UserController {
     
     async getUserByEmail(req, res) {
         try{
-            const userEmail = req.params.userEmail;
-            const user = await User.findByEmail(userEmail);
+            const email = req.params.userEmail;
+            const user = await User.findOne({email});
             if (!user) {
                 return res.status(404).json({ status: 'error', message: 'User not found' });
             } else {
@@ -58,7 +60,7 @@ class UserController {
         try{   
             const { username, email, password } = req.body;
             
-            const user = await User.findByEmail(email);
+            const user = await User.findOne({email})
             if (!user) {
                 return res.status(404).json({ status: 'error', message: 'User not found' });
             }

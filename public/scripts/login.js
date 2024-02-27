@@ -14,28 +14,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         console.log(JSON.stringify(body));
-        fetch("/login", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                if (data.admin) {
-                    window.location.href = "/admin";
-                } else {
-                    window.location.href = "/travel";
-                }
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                console.log(data);
+                window.location.href = "/";
             } else {
-                alertMSG(data.message, "danger");
+                alertMSG(data.message, 'danger');
             }
-        })
-        .catch(error => {
-            console.error("An error occurred while processing your request:", error);
-        });
+        } catch (error) {
+            console.error('An error occurred while processing your request:', error);
+            alertMSG('An error occurred while processing your request', 'danger');
+        }
     });
 });
 
