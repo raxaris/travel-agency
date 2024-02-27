@@ -62,6 +62,12 @@ async function renderPage() {
         
         const data = await getDataFromServer(serverURL);
         console.log("query Data", data);
+        
+        if (data.success === false) {
+            console.log("No matching tours found");
+            return;
+        }
+
         renderCart(data);
     } catch (error) {
         console.error("Error rendering page:", error);

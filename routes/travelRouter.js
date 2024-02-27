@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const data = require('../data.json');
 const axios = require('axios');
-const fs = require('fs');
+const Country = require('../models/countryModel');
 
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../view/index.html'));
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 router.get("/search", async (req, res) => {
     try {
         const queryParams = req.query;
-        const matchingTours = findMatchingTours(queryParams);
+        const matchingTours = await findMatchingTours(queryParams);
 
         if (matchingTours.length === 0) {
             res.json({ success: false, message: "No matching tours found" });
@@ -25,15 +25,20 @@ router.get("/search", async (req, res) => {
     }
 });
 
-router.get('/data', (req, res) => {
-    res.json(data);
-    console.log("Data was requested.")
+router.get('/data', async (req, res) => {
+    try {
+        const countries = await Country.find().lean();
+        res.json(countries); 
+        console.log("Data was requested.");
+    } catch (error) {
+        console.error("Error handling /data request:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
 router.get('/tours', (req, res) => {
     const queryParams = req.query;
     console.log('query: ', queryParams);
-    saveHistoryLog(queryParams);
     res.sendFile(path.join(__dirname, '../view/search.html'));
 });
 
@@ -62,46 +67,65 @@ router.get('/weather', async (req, res) => {
     }
 });
 
-function findMatchingTours(queryParams) {
-    return data.countries.reduce((result, currentCountry) => {
-        if (!queryParams.country || currentCountry.name === queryParams.country) {
-            const matchingCities = currentCountry.cities.filter(cityData => {
-                return !queryParams.city || cityData.name === queryParams.city;
-            });
+async function findMatchingTours(queryParams) {
+    try {
+        let query = {};
 
-            matchingCities.forEach(matchingCity => {
-                const matchingHotels = matchingCity.hotels.filter(hotelData => {
-                    return !queryParams.hotel || hotelData.name === queryParams.hotel;
-                });
-
-                matchingHotels.forEach(matchingHotel => {
-                    matchingHotel.tours.forEach(tour => {
-                        const datesMatch = (!queryParams.departure || tour.dateDeparture === queryParams.departure) &&
-                            (!queryParams.arrival || tour.dateArrival === queryParams.arrival);
-
-                        const guestsMatch = (!queryParams.adults || tour.adults === parseInt(queryParams.adults)) &&
-                            (!queryParams.children || tour.children === parseInt(queryParams.children));
-
-                        if (datesMatch && guestsMatch) {
-                            result.push({
-                                country: currentCountry.name,
-                                city: matchingCity.name,
-                                hotel: matchingHotel.name,
-                                arrival: tour.dateArrival,
-                                departure: tour.dateDeparture,
-                                adults: tour.adults,
-                                children: tour.children,
-                                price: calculatePrice(matchingHotel, tour.adults, tour.children),
-                                img: matchingHotel.img
-                            });
-                        }
-                    });
-                });
-            });
+        if (queryParams.country) {
+            query['name'] = queryParams.country;
         }
 
-        return result;
-    }, []);
+        if (queryParams.city) {
+            query['cities.name'] = queryParams.city;
+        }
+
+        if (queryParams.hotel) {
+            query['cities.hotels.name'] = queryParams.hotel;
+        }
+
+        if (queryParams.departure) {
+            query['cities.hotels.tours.dateDeparture'] = queryParams.departure;
+        }
+
+        if (queryParams.arrival) {
+            query['cities.hotels.tours.dateArrival'] = queryParams.arrival;
+        }
+
+        if (queryParams.adults) {
+            query['cities.hotels.tours.adults'] = parseInt(queryParams.adults);
+        }
+
+        if (queryParams.children) {
+            query['cities.hotels.tours.children'] = parseInt(queryParams.children);
+        }
+
+        const matchingTours = await Country.aggregate([
+            { $unwind: "$cities" },
+            { $unwind: "$cities.hotels" },
+            { $unwind: "$cities.hotels.tours" },
+            { $match: query },
+            {
+                $project: {
+                    _id: 0,
+                    country: "$name",
+                    city: "$cities.name",
+                    hotel: "$cities.hotels.name",
+                    arrival: "$cities.hotels.tours.dateArrival",
+                    departure: "$cities.hotels.tours.dateDeparture",
+                    adults: "$cities.hotels.tours.adults",
+                    children: "$cities.hotels.tours.children",
+                    price: { $multiply: ["$cities.hotels.price", { $add: ["$cities.hotels.tours.adults", { $multiply: ["$cities.hotels.tours.children", 0.5] }] }] },
+                    img: "$cities.hotels.img"
+                }
+            }
+        ]);
+
+        console.log(matchingTours);
+        return matchingTours;
+    } catch (error) {
+        console.error("Error finding matching tours:", error);
+        throw error;
+    }
 }
 
 function calculatePrice(hotel, adults, children) {

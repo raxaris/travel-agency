@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const {secret} = require('./config');
+const helmet = require('helmet');
 
 const app = express();
 const port = 3000;
@@ -24,9 +25,19 @@ app.use(session({
     maxAge: 86400000,
     secure: false } 
 }));
-
+//helmet
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: ["'self'", "*"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://cdn.jsdelivr.net"],
+      scriptSrcAttr: ["'unsafe-inline'"]
+    }
+  })
+);
 //travelRouter
-// app.use('/travel', travelRouter);
+app.use('/travel', travelRouter);
 
 //adminRouter
 app.use('/admin', adminRouter);

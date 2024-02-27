@@ -33,9 +33,9 @@ async function fetchDataAndProcess(url) {
         const data = await fetchData(url);
         console.log(url);
         responseData = data;
-        console.log('Data:', data);
+        console.log('Response data:', responseData);
 
-        availableCountries = responseData.countries.map(country => country.name);
+        availableCountries = responseData.map(country => country.name);
         console.log(availableCountries);
         setupEventListeners();
     } catch (error) {
@@ -166,12 +166,12 @@ function selectHotelInput(list){
 }
 
 function updateAvailableCities(countryName) {
-    const selectedCountry = responseData.countries.find(country => country.name === countryName);
+    const selectedCountry = responseData.find(country => country.name === countryName);
     availableCities = selectedCountry ? selectedCountry.cities.map(city => city.name) : [];
 }
 
 function updateAvailableHotels(cityName) {
-    const selectedCity = responseData.countries.flatMap(country => country.cities)
+    const selectedCity = responseData.flatMap(country => country.cities)
         .find(city => city.name === cityName);
 
     availableHotels = selectedCity ? selectedCity.hotels.map(hotel => hotel.name) : [];
