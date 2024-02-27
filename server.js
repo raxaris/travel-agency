@@ -33,6 +33,7 @@ app.use(
       connectSrc: ["'self'", "*", "http://localhost:3000"], 
       imgSrc: ["'self'", "*"], 
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "*", "https://cdn.jsdelivr.net", "https://ajax.googleapis.com"], 
+      scriptSrcAttr: ["'unsafe-inline'"] 
     }
   })
 );
