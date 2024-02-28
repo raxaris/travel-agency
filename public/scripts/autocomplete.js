@@ -177,4 +177,4 @@ function updateAvailableHotels(cityName) {
     availableHotels = selectedCity ? selectedCity.hotels.map(hotel => hotel.name) : [];
 }
 
-fetchDataAndProcess('http://localhost:3000/travel/data');
+fetchDataAndProcess('https://travel-agency-1-iw9l.onrender.com/travel/data');

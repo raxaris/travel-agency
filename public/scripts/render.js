@@ -57,7 +57,7 @@ async function renderPage() {
     try {
         const queryString = window.location.search;
         console.log(queryString);
-        const serverURL = `http://localhost:3000/travel/search${queryString}`;
+        const serverURL = `https://travel-agency-1-iw9l.onrender.com/travel/search${queryString}`;
         console.log(serverURL);
         
         const data = await getDataFromServer(serverURL);
@@ -96,7 +96,7 @@ async function getDataFromServer(url) {
 
 async function getWeatherData(city){
     try {
-        const serverURL = "http://localhost:3000/travel/weather";
+        const serverURL = "https://travel-agency-1-iw9l.onrender.com/travel/weather";
         const response = await fetch(`${serverURL}?city=${city}`);
         const data = await response.json();
         console.log(data);

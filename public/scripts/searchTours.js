@@ -24,7 +24,7 @@ function searchTours() {
         .join('&');
 
    
-        const url = `http://localhost:3000/travel/tours?${queryParams}`;
+        const url = `https://travel-agency-1-iw9l.onrender.com/travel/tours?${queryParams}`;
         console.log(url);
         window.location.href = url;
 }
