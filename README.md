@@ -7,14 +7,15 @@ This project is compatible with Node.js version 20.10.0. Ensure that you have No
 
 - **Routes**: The `routes` folder contains the routers for different functionalities. Notable ones are:
   - `travelRouter.js`: Manages routes related to tour searches, data retrieval, weather information, and logging.
+  - `adminRouter.js`: Manages routes related to admin CRUD methods.
+  - `mainRouter.js`: Manages routes related to main route.
 
 - **Public**: The `public` folder stores static assets such as CSS scripts and images.
 
 - **View**: The `view` folder contains HTML files for different pages of the application.
 - **Data Storage**:
-  - `data.json`: Stores data related to tours, countries, cities, hotels, and prices.
-  - `logs.json`: Maintains a log of historical search queries.
-  - `users.json`: Stores users data, such as username, email, password.
+  - `mongo.countries`: Stores data related to tours, countries, cities, hotels, and prices.
+  - `mongo.users`: Stores users data, such as username, email, password.
   - `package-lock.json`: Captures dependency versions to ensure consistent installations.
   
 
